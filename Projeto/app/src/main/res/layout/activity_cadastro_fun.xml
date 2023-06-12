@@ -4,129 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".telas.cadastro">
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/bt_TC_cadastrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_nomeEmpresa"
-        app:layout_constraintVertical_bias="0.5" />
+    tools:context=".telas.cadastro_fun">
 
     <EditText
-        android:id="@+id/et_TC_email"
+        android:id="@+id/et_CF_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_senha"
+        app:layout_constraintBottom_toTopOf="@+id/et_CF_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/et_TC_senha"
+        android:id="@+id/et_CF_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Senha"
+        android:hint="@string/senha"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_nomefull"
+        app:layout_constraintBottom_toTopOf="@+id/et_CF_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_CF_email"
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/et_TC_nomefull"
+        android:id="@+id/et_CF_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/nome_completo"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_cpf"
+        app:layout_constraintBottom_toTopOf="@+id/et_CF_cpf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_senha"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <Button
-        android:id="@+id/bt_TC_cadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4580C6"
-        android:text="@string/cadastrar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/et_CF_senha"
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/et_TC_nomeEmpresa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/nome_empresa"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_cnpj"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="110dp"
-        android:layout_height="28dp"
-        android:text="@string/cadastro"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <EditText
-        android:id="@+id/et_TC_cpf"
+        android:id="@+id/et_CF_cpf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/cpf"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_cnpj"
+        app:layout_constraintBottom_toTopOf="@+id/spin_CF_cargoFun"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_nomefull"
+        app:layout_constraintTop_toBottomOf="@+id/et_CF_nome"
         app:layout_constraintVertical_bias="0.5" />
 
-    <EditText
-        android:id="@+id/et_TC_cnpj"
+    <Spinner
+        android:id="@+id/spin_CF_cargoFun"
+        android:layout_width="235dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/spin_CF_unidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_CF_cpf"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Spinner
+        android:id="@+id/spin_CF_unidade"
+        android:layout_width="235dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_CF_cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spin_CF_cargoFun"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/bt_CF_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/cnpj"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_nomeEmpresa"
+        android:backgroundTint="#4580C6"
+        android:text="@string/cadastrar"
+        app:iconTint="#4580C6"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_cpf"
+        app:layout_constraintTop_toBottomOf="@+id/spin_CF_unidade"
         app:layout_constraintVertical_bias="0.5" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastro_de_funcionario"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@+id/et_CF_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
