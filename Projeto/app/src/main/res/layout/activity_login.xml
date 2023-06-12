@@ -4,53 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C6C6C6"
     tools:context=".telas.login">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="189dp"
+        android:layout_height="157dp"
+        app:layout_constraintBottom_toTopOf="@+id/ed_TL_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/tenis_removebg_preview" />
 
     <EditText
         android:id="@+id/ed_TL_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/senha"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/bt_TL_entrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_TL_email" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_TL_email"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/ed_TL_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
         android:ems="10"
         android:foregroundTint="#FFFFFF"
         android:hint="@string/email"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/ed_TL_senha"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/bt_TL_relembrar"
+        android:id="@+id/bt_TL_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="@string/esqueci_minha_senha"
+        android:backgroundTint="#4580C6"
+        android:text="@string/cadastro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_TL_entrar"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/bt_TL_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4580C6"
         android:text="@string/entrar"
-        app:layout_constraintBottom_toTopOf="@+id/bt_TL_relembrar"
+        app:iconTint="#4580C6"
+        app:layout_constraintBottom_toTopOf="@+id/bt_TL_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_TL_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_TL_senha"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
