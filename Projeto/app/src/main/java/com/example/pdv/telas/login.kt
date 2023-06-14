@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.pdv.R
+import com.google.firebase.auth.FirebaseAuth
 
 class login : AppCompatActivity() {
 
@@ -26,5 +28,24 @@ class login : AppCompatActivity() {
             val intent = Intent(this, cadastro::class.java)
             startActivity(intent)
         }
+
+        bt_entrar.setOnClickListener {
+            val auth = FirebaseAuth.getInstance()
+
+            var password: String = et_senha.getText().toString()
+            var email: String = et_email.getText().toString()
+
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Login bem-sucedido
+                    val user = auth.currentUser
+                    val tela_nova= Intent(this, Principio::class.java)
+                    startActivity(tela_nova)
+                } else {
+                    Toast.makeText(this, "Deu ruim seu login!!", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
     }
 }

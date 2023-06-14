@@ -4,19 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".telas.cadastro">
+    tools:context=".telas.cadastro"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-1dp">
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="132dp"
+        android:layout_height="114dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/tenis_removebg_preview" />
+
+    <EditText
+        android:id="@+id/et_TC_cnpj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/bt_TC_cadastrar"
+        android:ems="10"
+        android:hint="@string/cnpj"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/et_TC_nomeEmpresa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_TC_cpf"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/bt_TC_cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4580C6"
+        android:text="@string/cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_TC_nomeEmpresa"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="110dp"
+        android:layout_height="28dp"
+        android:text="@string/cadastro"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/et_TC_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
@@ -25,7 +66,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/et_TC_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,9 +80,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Senha"
-        android:inputType="text"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/et_TC_nomefull"
         app:layout_constraintEnd_toEndOf="parent"
+        app:passwordToggleEnabled="true"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_TC_email"
@@ -61,46 +103,6 @@
         app:layout_constraintTop_toBottomOf="@+id/et_TC_senha"
         app:layout_constraintVertical_bias="0.5" />
 
-    <Button
-        android:id="@+id/bt_TC_cadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4580C6"
-        android:text="@string/cadastrar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <EditText
-        android:id="@+id/et_TC_nomeEmpresa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/nome_empresa"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_cnpj"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="110dp"
-        android:layout_height="28dp"
-        android:text="@string/cadastro"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
-
     <EditText
         android:id="@+id/et_TC_cpf"
         android:layout_width="wrap_content"
@@ -116,17 +118,17 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <EditText
-        android:id="@+id/et_TC_cnpj"
+        android:id="@+id/et_TC_nomeEmpresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/cnpj"
+        android:hint="@string/nome_empresa"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/et_TC_nomeEmpresa"
+        app:layout_constraintBottom_toTopOf="@+id/bt_TC_cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_TC_cpf"
+        app:layout_constraintTop_toBottomOf="@+id/et_TC_cnpj"
         app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
