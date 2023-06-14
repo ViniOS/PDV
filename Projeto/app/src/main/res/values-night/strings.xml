@@ -4,4 +4,11 @@
     <string name="entrar">Entrar</string>
     <string name="email">Email</string>
     <string name="senha">Senha</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="excluir">Excluir</string>
+    <string name="c_digo_ou_id">Código ou ID:</string>
+    <string name="descri_o">Descrição:</string>
+    <string name="nome_do_produto">Nome do Produto:</string>
+    <string name="quantidade">Quantidade:</string>
+    <string name="digite_o_c_digo_do_produto_para_atualizar_ou_excluir">Digite o código do produto para atualizar ou excluir.</string>
 </resources>
