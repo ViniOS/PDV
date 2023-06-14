@@ -8,12 +8,11 @@
     <string name="nome_completo">Nome Completo</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="nome_empresa">Nome Empresa</string>
-
     <string name="cpf">CPF</string>
     <string name="cnpj">CNPJ</string>
     <string name="endere_o">Endereço</string>
     <string name="loja_virtual">Loja Virtual?</string>
     <string name="nome_da_unidade">Nome da Unidade</string>
     <string name="unidades">Unidades</string>
-    <string name="cadastro_de_funcionario">Cadastro de Funcionario</string>
+    <string name="cadastro_produto">Cadastro de Produtos</string>
 </resources>
