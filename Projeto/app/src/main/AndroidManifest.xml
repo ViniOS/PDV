@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Pdv"
         tools:targetApi="31">
         <activity
+            android:name=".telas.Mostrar"
+            android:exported="false" />
+        <activity
+            android:name=".telas.Acoes"
+            android:exported="false" />
+        <activity
             android:name=".telas.Principio"
             android:exported="false" />
         <activity
