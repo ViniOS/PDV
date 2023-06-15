@@ -94,7 +94,7 @@ class cadastro_produto : AppCompatActivity() {
     fun saveProduct() {
         val productName = et_nome.text.toString()
         val productCode = et_id.text.toString()
-        val quantidade = et_quantidade.toString().toInt()
+        val quantidade = et_quantidade.text.toString().toInt()
         val descricao = et_descricao.text.toString()
 
         if (filePath == null) {
