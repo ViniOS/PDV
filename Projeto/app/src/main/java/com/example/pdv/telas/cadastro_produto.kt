@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -30,12 +30,18 @@ class cadastro_produto : AppCompatActivity() {
     lateinit var bt_CP_imagem: Button
     lateinit var bt_CP_cadastrar: Button
 
-    fun chooseImage() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), PICK_IMAGE_REQUEST)
+    fun limpa_tela() {
+        et_nome.text.clear()
+        et_id.text.clear()
+        et_quantidade.text.clear()
+        et_descricao.text.clear()
     }
+    fun chooseImage() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
@@ -94,11 +100,19 @@ class cadastro_produto : AppCompatActivity() {
     fun saveProduct() {
         val productName = et_nome.text.toString()
         val productCode = et_id.text.toString()
-        val quantidade = et_quantidade.text.toString().toInt()
+        val aux = et_quantidade.text.toString()
         val descricao = et_descricao.text.toString()
 
+        if (productName.isEmpty() || productCode.isEmpty() || descricao.isEmpty() || aux.isEmpty()) {
+            Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        val quantidade = aux.toInt()
+
         if (filePath == null) {
-            Log.d("cadastro_produto", "filePath is null")
+            Toast.makeText(this, "Por favor, selecione uma imagem.", Toast.LENGTH_LONG).show()
+            return
         } else {
             filePath?.let { imageUri ->
                 uploadImage(imageUri) { imageUrl ->
@@ -114,6 +128,7 @@ class cadastro_produto : AppCompatActivity() {
                         .add(product)
                         .addOnSuccessListener { documentReference ->
                             Toast.makeText(this, "Produto criado com sucesso!", Toast.LENGTH_LONG).show()
+                            limpa_tela()
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(this, "Deu ruim ao criar o produto!", Toast.LENGTH_LONG).show()

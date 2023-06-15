@@ -41,7 +41,7 @@ class cadastro : AppCompatActivity() {
         fun updateUI(user: FirebaseUser?) {
             if (user != null) {
                 Toast.makeText(this, "Bem-vindo ${user.email}!", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, cadastro_produto::class.java)
+                val intent = Intent(this, Acoes::class.java)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Falha na autenticação.", Toast.LENGTH_LONG).show()

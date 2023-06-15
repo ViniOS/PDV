@@ -1,8 +1,9 @@
 package com.example.pdv.telas
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pdv.R
 
 class Acoes : AppCompatActivity() {
@@ -18,5 +19,10 @@ class Acoes : AppCompatActivity() {
         bt_inserir = findViewById(R.id.bt_AC_inserir)
         bt_att_del = findViewById(R.id.bt_AC_att_del)
         bt_mostrar = findViewById(R.id.bt_AC_mostra)
+
+        bt_inserir.setOnClickListener {
+            val intent = Intent(this, cadastro_produto::class.java)
+            startActivity(intent)
+        }
     }
 }

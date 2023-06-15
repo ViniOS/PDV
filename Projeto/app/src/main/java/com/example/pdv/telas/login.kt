@@ -39,7 +39,7 @@ class login : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Login bem-sucedido
                     val user = auth.currentUser
-                    val tela_nova= Intent(this, cadastro_produto::class.java)
+                    val tela_nova= Intent(this, Acoes::class.java)
                     startActivity(tela_nova)
                 } else {
                     Toast.makeText(this, "Deu ruim seu login!!", Toast.LENGTH_LONG).show()
