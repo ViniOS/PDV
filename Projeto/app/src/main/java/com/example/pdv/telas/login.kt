@@ -35,15 +35,20 @@ class login : AppCompatActivity() {
             val password: String = et_senha.getText().toString()
             val email: String = et_email.getText().toString()
 
-            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Login bem-sucedido
-                    val user = auth.currentUser
-                    val tela_nova= Intent(this, Acoes::class.java)
-                    startActivity(tela_nova)
-                } else {
-                    Toast.makeText(this, "Deu ruim seu login!!", Toast.LENGTH_LONG).show()
-                }
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_LONG).show()
+            } else {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Login bem-sucedido
+                            val user = auth.currentUser
+                            val tela_nova = Intent(this, Acoes::class.java)
+                            startActivity(tela_nova)
+                        } else {
+                            Toast.makeText(this, "Deu ruim seu login!!", Toast.LENGTH_LONG).show()
+                        }
+                    }
             }
         }
 

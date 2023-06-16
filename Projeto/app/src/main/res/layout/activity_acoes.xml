@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text="Escolha a ação desejada:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/bt_AC_inserir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

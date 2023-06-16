@@ -24,5 +24,15 @@ class Acoes : AppCompatActivity() {
             val intent = Intent(this, cadastro_produto::class.java)
             startActivity(intent)
         }
+
+        bt_att_del.setOnClickListener {
+            val intent = Intent(this, Att_Excluir::class.java)
+            startActivity(intent)
+        }
+
+        bt_mostrar.setOnClickListener {
+            val intent = Intent(this, Mostrar::class.java)
+            startActivity(intent)
+        }
     }
 }

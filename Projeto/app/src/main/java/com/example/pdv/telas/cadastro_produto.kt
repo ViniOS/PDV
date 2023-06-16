@@ -20,7 +20,7 @@ import com.google.firebase.storage.ktx.storage
 
 class cadastro_produto : AppCompatActivity() {
 
-    private val PICK_IMAGE_REQUEST = 71
+    private val PICK_IMAGE_REQUEST = 77
     private var filePath: Uri? = null
 
     lateinit var et_nome: EditText
@@ -117,6 +117,7 @@ class cadastro_produto : AppCompatActivity() {
             filePath?.let { imageUri ->
                 uploadImage(imageUri) { imageUrl ->
                     val db = FirebaseFirestore.getInstance()
+                    val productRef = db.collection("products").document(productCode)
                     val product = hashMapOf(
                         "NomeProduto" to productName,
                         "ID" to productCode,
@@ -124,11 +125,10 @@ class cadastro_produto : AppCompatActivity() {
                         "Descrição" to descricao,
                         "imageUrl" to imageUrl
                     )
-                    db.collection("products")
-                        .add(product)
-                        .addOnSuccessListener { documentReference ->
-                            Toast.makeText(this, "Produto criado com sucesso!", Toast.LENGTH_LONG).show()
+                    productRef.set(product)
+                        .addOnSuccessListener { Toast.makeText(this, "Produto criado com sucesso!", Toast.LENGTH_LONG).show()
                             limpa_tela()
+                            finish()
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(this, "Deu ruim ao criar o produto!", Toast.LENGTH_LONG).show()

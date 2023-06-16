@@ -36,9 +36,6 @@
             android:name=".telas.cadastro_produto"
             android:exported="false" />
         <activity
-            android:name=".telas.Unidades"
-            android:exported="false" />
-        <activity
             android:name=".telas.cadastro"
             android:exported="false" />
         <activity
