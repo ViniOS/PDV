@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.pdv.R
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -118,12 +119,19 @@ class cadastro_produto : AppCompatActivity() {
                 uploadImage(imageUri) { imageUrl ->
                     val db = FirebaseFirestore.getInstance()
                     val productRef = db.collection("products").document(productCode)
+
+                    val userId = Firebase.auth.currentUser?.uid // Obtem o UID do usuário atualmente autenticado
+
+                    val timestamp = com.google.firebase.Timestamp.now()// Obtem a hora atual para inserção do produto
+
                     val product = hashMapOf(
                         "NomeProduto" to productName,
                         "ID" to productCode,
                         "Quantidade" to quantidade,
                         "Descrição" to descricao,
-                        "imageUrl" to imageUrl
+                        "imageUrl" to imageUrl,
+                        "userId" to userId, //adiciona usuario atual
+                        "dataInsercao" to timestamp //adiciona a data
                     )
                     productRef.set(product)
                         .addOnSuccessListener { Toast.makeText(this, "Produto criado com sucesso!", Toast.LENGTH_LONG).show()

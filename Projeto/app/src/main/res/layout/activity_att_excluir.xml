@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".telas.Att_Excluir">
 
-    <Button
-        android:id="@+id/bt_ATT_EX_imagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#4580C6"
-        android:text="Escolher nova imagem"
-        app:layout_constraintBottom_toTopOf="@+id/bt_ATT_EX_att"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ATT_EX_descricao"
-        app:layout_constraintVertical_bias="0.5" />
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="132dp"
@@ -54,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_ATT_EX_imagem"
+        app:layout_constraintTop_toBottomOf="@+id/et_ATT_EX_descricao"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
@@ -119,7 +106,7 @@
         android:ems="10"
         android:hint="@string/descri_o"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/bt_ATT_EX_imagem"
+        app:layout_constraintBottom_toTopOf="@+id/bt_ATT_EX_att"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

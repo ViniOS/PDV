@@ -34,12 +34,13 @@ class Att_Excluir : AppCompatActivity() {
         et_descricao.text.clear()
     }
 
-    fun chooseImage() {
+    /*fun chooseImage() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_PICK
         startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), PICK_IMAGE_REQUEST)
-    }
+    }*/
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
@@ -76,7 +77,7 @@ class Att_Excluir : AppCompatActivity() {
         et_descricao = findViewById(R.id.et_ATT_EX_descricao)
         bt_Att = findViewById(R.id.bt_ATT_EX_att)
         bt_Excluir = findViewById(R.id.bt_ATT_EX_excluir)
-        bt_imagem = findViewById(R.id.bt_ATT_EX_imagem)
+        //bt_imagem = findViewById(R.id.bt_ATT_EX_imagem)
 
         val productName = et_nome.text.toString()
         val productCode = et_id.text.toString()
@@ -132,21 +133,33 @@ class Att_Excluir : AppCompatActivity() {
 
             val db = FirebaseFirestore.getInstance()
             val productRef = db.collection("products").document(productCode)
-            productRef.delete()
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Produto excluído com sucesso!", Toast.LENGTH_LONG).show()
-                    limpa_tela()
-                    finish()
+            productRef.get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        productRef.delete()
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Produto excluído com sucesso!", Toast.LENGTH_LONG).show()
+                                limpa_tela()
+                                finish()
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Deu ruim ao excluir o produto!", Toast.LENGTH_LONG).show()
+                                //Log.e("EXCLUSAO", "Erro ao excluir o produto", e)
+                            }
+                    } else {
+                        Toast.makeText(this, "Produto não encontrado!", Toast.LENGTH_LONG).show()
+                    }
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Deu ruim ao excluir o produto!", Toast.LENGTH_LONG).show()
-                    Log.e("EXCLUSAO", "Erro ao excluir o produto", e)
+                    Toast.makeText(this, "Deu ruim no banco de dados!", Toast.LENGTH_LONG).show()
+                    //Log.e("BUSCA", "Erro ao buscar o produto", e)
                 }
         }
 
-        bt_imagem.setOnClickListener(){
+
+        /*bt_imagem.setOnClickListener(){
             chooseImage()
-        }
+        }*/
 
         bt_Att.setOnClickListener(){
             updateProduct()
