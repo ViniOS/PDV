@@ -97,29 +97,20 @@ class Att_Excluir : AppCompatActivity() {
 
             val quantidade = aux.toInt()
 
-            if (filePath == null) {
-                Toast.makeText(this, "Por favor, selecione uma imagem.", Toast.LENGTH_LONG).show()
-                return
-            } else {
-                filePath?.let { imageUri ->
-                    uploadImage(imageUri) { imageUrl ->
-                        val db = FirebaseFirestore.getInstance()
-                        val productRef = db.collection("products").document(productCode)
-                        productRef.update(
-                            "NomeProduto", productName,
-                            "Quantidade", quantidade,
-                            "Descrição", descricao,
-                            "imageUrl", imageUrl
-                        ).addOnSuccessListener {
-                            Toast.makeText(this, "Produto atualizado com sucesso!", Toast.LENGTH_LONG).show()
-                            limpa_tela()
-                            finish()
-                        }.addOnFailureListener { e ->
-                            Toast.makeText(this, "Deu ruim ao atualizar o produto!", Toast.LENGTH_LONG).show()
-                            Log.e("ATUALIZACAO", "Erro ao atualizar o produto", e)
-                        }
-                    }
-                }
+            val db = FirebaseFirestore.getInstance()
+            val productRef = db.collection("products").document(productCode)
+            productRef.update(
+                "NomeProduto", productName,
+                "Quantidade", quantidade,
+                "Descrição", descricao
+                //"imageUrl", imageUrl
+            ).addOnSuccessListener {
+                Toast.makeText(this, "Produto atualizado com sucesso!", Toast.LENGTH_LONG).show()
+                limpa_tela()
+                finish()
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, "Deu ruim ao atualizar o produto!", Toast.LENGTH_LONG).show()
+                Log.e("ATUALIZACAO", "Erro ao atualizar o produto", e)
             }
         }
 
