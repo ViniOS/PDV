@@ -27,9 +27,6 @@
             android:name=".telas.Acoes"
             android:exported="false" />
         <activity
-            android:name=".telas.Principio"
-            android:exported="false" />
-        <activity
             android:name=".telas.pos_cadastro"
             android:exported="false" />
         <activity
